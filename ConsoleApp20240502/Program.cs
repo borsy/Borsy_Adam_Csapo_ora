@@ -28,7 +28,20 @@ namespace ConsoleApp20240502
 
         private static void feladat4() //Olvassatok be a billenytyűzetről egy évszámot. Összesen milyen magasak azok az épületek, amelyek ez előtt az évszám előtt épültek?
         {
-            
+            Console.WriteLine("4. feladat:");
+
+            int evszam = int.Parse(Console.ReadLine());
+            double ossz_magassag =0;
+
+            foreach (var item in epuletek)
+            {
+                if (item.epites_eve<evszam)
+                {
+                    ossz_magassag = item.magassag_ft + ossz_magassag;
+                }
+            }
+
+            Console.WriteLine("Összmagasság: " + ossz_magassag );
         }
 
         private static void feladat3() //Készítsetek egy új metódust Tutiepulet() néven az Epulet osztályban, amely egy logiakai értékkel tér vissza attól függően, hogy az épület 500m-nél magasabb és 100 emelettel többel rendelkezik-e?
