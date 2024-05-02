@@ -8,17 +8,15 @@ namespace ConsoleApp20240502
 {
     public class Epulet
     {
-        private int rang;
-        private string nev;
-        private string varos_orszag;
-        private double magassag_m;
-        private int magassag_ft;
-        private int emeletek_szama;
-        private int epites_eve;
-        private string alapanyag;
-        private string felhasznalas;
+        public int rang;
+        public string nev;
+        public string varos_orszag;
+        public double magassag_m;
+        public double magassag_ft;
+        public int emeletek_szama;
+        public int epites_eve;
 
-        public Epulet(int rang, string nev, string varos_orszag, int magassag_m, int magassag_ft, int emeletek_szama, int epites_eve, string alapanyag, string felhasznalas)
+        public Epulet(int rang, string nev, string varos_orszag, double magassag_m, double magassag_ft, int emeletek_szama, int epites_eve)
         {
             this.rang = rang;
             this.nev = nev;
@@ -27,8 +25,6 @@ namespace ConsoleApp20240502
             this.magassag_ft = magassag_ft;
             this.emeletek_szama = emeletek_szama;
             this.epites_eve = epites_eve;
-            this.alapanyag = alapanyag;
-            this.felhasznalas = felhasznalas;
         }
     }
 }

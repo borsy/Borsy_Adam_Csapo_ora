@@ -22,13 +22,12 @@ namespace ConsoleApp20240502
 
         private static void beolvasas()
         {
-            using (StreamReader olvaso = new StreamReader("100_tallest_javitott.csv"))
+            using (StreamReader olvaso = new StreamReader("100_tallest_javitott4.csv"))
             {
-                olvaso.ReadLine(); // --fejléc kihagyása, nem kell
                 while (!olvaso.EndOfStream)
                 {
-                    string[] sor = olvaso.ReadLine().Replace('"', ' ').Split(',');
-                    Epulet epulet = new Epulet(int.Parse(sor[0].Trim()), sor[1].Trim(), sor[2].Trim(), int.Parse(sor[3].Trim()), int.Parse(sor[4].Trim()), int.Parse(sor[5].Trim()), int.Parse(sor[6].Trim()), sor[7].Trim(), sor[8].Trim());
+                    string[] sor = olvaso.ReadLine().Split(';');
+                    Epulet epulet = new Epulet(int.Parse(sor[0]), sor[1], sor[2], double.Parse(sor[3]), double.Parse(sor[4]), int.Parse(sor[5]), int.Parse(sor[6]));
                     epuletek.Add(epulet);
                 }
             }
