@@ -42,6 +42,7 @@ namespace GUI20240502
             this.dataGridView_adatmegjelenites.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_adatmegjelenites.Location = new System.Drawing.Point(380, 41);
             this.dataGridView_adatmegjelenites.Name = "dataGridView_adatmegjelenites";
+            this.dataGridView_adatmegjelenites.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView_adatmegjelenites.Size = new System.Drawing.Size(408, 393);
             this.dataGridView_adatmegjelenites.TabIndex = 0;
             // 
