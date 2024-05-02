@@ -16,6 +16,17 @@ namespace ConsoleApp20240502
         public int emeletek_szama;
         public int epites_eve;
 
+        public bool Tutiepulet() 
+        {
+            bool ertek = false;
+            if (magassag_m>=500 && emeletek_szama>100)
+            {
+                ertek = true;
+            }
+            return ertek;
+        }
+
+
         public Epulet(int rang, string nev, string varos_orszag, double magassag_m, double magassag_ft, int emeletek_szama, int epites_eve)
         {
             this.rang = rang;

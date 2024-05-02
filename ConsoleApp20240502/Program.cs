@@ -15,9 +15,46 @@ namespace ConsoleApp20240502
         static void Main(string[] args)
         {
             beolvasas();
+            feladat1();
+            feladat2();
+            feladat3();
+            feladat4();
 
             Console.WriteLine("Program vége!");
             Console.ReadLine();
+
+            
+        }
+
+        private static void feladat4() //Olvassatok be a billenytyűzetről egy évszámot. Összesen milyen magasak azok az épületek, amelyek ez előtt az évszám előtt épültek?
+        {
+            
+        }
+
+        private static void feladat3() //Készítsetek egy új metódust Tutiepulet() néven az Epulet osztályban, amely egy logiakai értékkel tér vissza attól függően, hogy az épület 500m-nél magasabb és 100 emelettel többel rendelkezik-e?
+        {
+            
+        }
+
+        private static void feladat2() //Menny olyan épület van, amelyik neve nem tartalmazza a "Tower" szót?
+        {
+            int db = 0;
+            for (int i = 0; i<epuletek.Count;i++)
+            {
+                if (!epuletek[i].nev.Contains("Tower"))
+                {
+                    db++;
+                }
+                
+            }
+            Console.WriteLine("2. feladat:");
+            Console.WriteLine($"\t{db} ");
+        }
+
+        private static void feladat1() //Menny épület adata lett beolvasva
+        {
+            Console.WriteLine("1. feladat:");
+            Console.WriteLine($"\tAz épületek száma: {epuletek.Count} db");
         }
 
         private static void beolvasas()
