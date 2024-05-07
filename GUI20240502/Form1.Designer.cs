@@ -33,7 +33,7 @@ namespace GUI20240502
             this.button_orszag = new System.Windows.Forms.Button();
             this.label_orszag = new System.Windows.Forms.Label();
             this.button_osszemelet = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_osszemelet = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adatmegjelenites)).BeginInit();
             this.SuspendLayout();
             // 
@@ -75,22 +75,22 @@ namespace GUI20240502
             this.button_osszemelet.UseVisualStyleBackColor = true;
             this.button_osszemelet.Click += new System.EventHandler(this.button_osszemelet_Click);
             // 
-            // label1
+            // label_osszemelet
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label1.Location = new System.Drawing.Point(9, 307);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(353, 17);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "A 400 m-nél magasabb épületek átlagos emeletszáma:";
+            this.label_osszemelet.AutoSize = true;
+            this.label_osszemelet.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label_osszemelet.Location = new System.Drawing.Point(9, 307);
+            this.label_osszemelet.Name = "label_osszemelet";
+            this.label_osszemelet.Size = new System.Drawing.Size(353, 17);
+            this.label_osszemelet.TabIndex = 4;
+            this.label_osszemelet.Text = "A 400 m-nél magasabb épületek átlagos emeletszáma:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_osszemelet);
             this.Controls.Add(this.button_osszemelet);
             this.Controls.Add(this.label_orszag);
             this.Controls.Add(this.button_orszag);
@@ -109,7 +109,7 @@ namespace GUI20240502
         private System.Windows.Forms.Button button_orszag;
         private System.Windows.Forms.Label label_orszag;
         private System.Windows.Forms.Button button_osszemelet;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_osszemelet;
     }
 }
 
