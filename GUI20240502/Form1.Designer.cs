@@ -54,6 +54,7 @@ namespace GUI20240502
             this.button_orszag.TabIndex = 1;
             this.button_orszag.Text = "Ország";
             this.button_orszag.UseVisualStyleBackColor = true;
+            this.button_orszag.Click += new System.EventHandler(this.button_orszag_Click);
             // 
             // label_orszag
             // 
@@ -72,6 +73,7 @@ namespace GUI20240502
             this.button_osszemelet.TabIndex = 3;
             this.button_osszemelet.Text = "Összemelet";
             this.button_osszemelet.UseVisualStyleBackColor = true;
+            this.button_osszemelet.Click += new System.EventHandler(this.button_osszemelet_Click);
             // 
             // label1
             // 
