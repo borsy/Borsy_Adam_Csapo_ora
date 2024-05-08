@@ -25,7 +25,7 @@ namespace GUI20240502
         {
             string adat = dataGridView_adatmegjelenites.SelectedRows[0].Cells[1].Value.ToString();
             string sqlParancs = "SELECT city FROM buildings WHERE building_name ='" + adat + "';";
-            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, adatbazis_kapcsolat);
+            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, Adatbazis_kapcsolat);
             string varos = sqlparancsok.ExecuteScalar().ToString();
             label_orszag.Text = "Orszag: " + varos;
         }
@@ -34,7 +34,7 @@ namespace GUI20240502
         {
             string adat = dataGridView_adatmegjelenites.SelectedRows[0].Cells[2].Value.ToString();
             string sqlParancs = "SELECT COUNT(building_name) FROM buildings WHERE height_m >400 ;";
-            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, adatbazis_kapcsolat);
+            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, Adatbazis_kapcsolat);
             string varos = sqlparancsok.ExecuteScalar().ToString();
             label_osszemelet.Text = "A 400 m-nél magasabb épületek száma: " + varos;
         }
