@@ -6,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace GUI20240502
+
+    Adatbazis_kapcsolat kapcsolat = new Adatbazis_kapcsolat();
 {
     internal class Adatbazis_kapcsolat
     {
