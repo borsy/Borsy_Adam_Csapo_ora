@@ -7,12 +7,11 @@ using System.Threading.Tasks;
 
 namespace GUI20240502
 
-    Adatbazis_kapcsolat kapcsolat = new Adatbazis_kapcsolat();
 {
     internal class Adatbazis_kapcsolat
     {
         MySqlCommand sql_parancsok = null;
-        MySqlConnection adatbazis_kapcsolat = null;
+        public MySqlConnection adatbazis_kapcsolat = null;
 
         public Adatbazis_kapcsolat()
         {
