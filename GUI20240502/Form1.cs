@@ -17,27 +17,76 @@ namespace GUI20240502
 {
     public partial class Form1 : Form
     {
+        MySqlConnection adatbazis_kapcsolat = Adatbazis_kapcsolat.adatbazis_kapcsolat;
+        List<string> orszagok;
         public Form1()
         {
             InitializeComponent();
+            orszagok = new List<string>();
         }
 
-        private void button_orszag_Click(object sender, EventArgs e)
+        void button_orszag_Click(object sender, EventArgs e)
         {
-            string adat = dataGridView_adatmegjelenites.SelectedRows[0].Cells[1].Value.ToString();
-            string sqlParancs = "SELECT city FROM buildings WHERE building_name ='" + adat + "';";
-            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, new Adatbazis_kapcsolat().adatbazis_kapcsolat);
-            string varos = sqlparancsok.ExecuteScalar().ToString();
-            label_orszag.Text = "Orszag: " + varos;
+            dataGridView_adatmegjelenites.Rows.Clear();
+            dataGridView_adatmegjelenites.Columns.Clear();
+            dataGridView_adatmegjelenites.Columns.Add(new DataGridViewColumn()
+            {
+                Name = "Országok",
+                CellTemplate = new DataGridViewTextBoxCell() { }
+            });
+            foreach (string orszag in orszagok)
+            {
+                dataGridView_adatmegjelenites.Rows.Add(orszag);
+            }
         }
 
-        private void button_osszemelet_Click(object sender, EventArgs e)
+        void button_osszemelet_Click(object sender, EventArgs e)
         {
-            string adat = dataGridView_adatmegjelenites.SelectedRows[0].Cells[2].Value.ToString();
-            string sqlParancs = "SELECT COUNT(building_name) FROM buildings WHERE height_m >400 ;";
-            MySqlCommand sqlparancsok = new MySqlCommand(sqlParancs, new Adatbazis_kapcsolat().adatbazis_kapcsolat);
-            string varos = sqlparancsok.ExecuteScalar().ToString();
-            label_osszemelet.Text = "A 400 m-nél magasabb épületek száma: " + varos;
+            if (dataGridView_adatmegjelenites.SelectedCells[0].Value == null) return;
+
+            string city = "";
+            int osszEmelet = 0;
+            city = dataGridView_adatmegjelenites.SelectedCells[0].Value.ToString();
+            MySqlCommand parancs = adatbazis_kapcsolat.CreateCommand();
+            parancs.CommandText = $"SELECT city, SUM(floors) AS osszemelet FROM buildings WHERE city LIKE '%{city}%' GROUP BY CITY";
+            adatbazis_kapcsolat.Open();
+            MySqlDataReader olvaso = parancs.ExecuteReader();
+            while (olvaso.Read())
+            {
+                city = olvaso.GetString("city");
+                osszEmelet = olvaso.GetInt32("osszemelet");
+            }
+            adatbazis_kapcsolat.Close();
+
+            dataGridView_adatmegjelenites.Rows.Clear();
+            dataGridView_adatmegjelenites.Columns.Clear();
+
+            dataGridView_adatmegjelenites.Columns.Add(new DataGridViewColumn()
+            {
+                Name = city,
+                CellTemplate = new DataGridViewTextBoxCell() { }
+            });
+            dataGridView_adatmegjelenites.Rows.Add(osszEmelet.ToString());
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            List<string> varosok = new List<string>();
+            MySqlCommand parancs = adatbazis_kapcsolat.CreateCommand();
+            parancs.CommandText = "SELECT DISTINCT(city) as varos FROM buildings";
+            adatbazis_kapcsolat.Open();
+            MySqlDataReader olvaso = parancs.ExecuteReader();
+            while (olvaso.Read())
+            {
+                varosok.Add(olvaso.GetString("varos"));
+            }
+            adatbazis_kapcsolat.Close();
+            for (int i = 0; i < varosok.Count; i++)
+            {
+                string orszag = varosok[i].Split('(')[1].Split(')')[0];
+                if (!orszagok.Contains(orszag))
+                    orszagok.Add(orszag);
+            }
         }
     }
 }

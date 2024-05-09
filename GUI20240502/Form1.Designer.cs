@@ -97,6 +97,7 @@ namespace GUI20240502
             this.Controls.Add(this.dataGridView_adatmegjelenites);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adatmegjelenites)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
